@@ -40,7 +40,7 @@ module.exports = (service) => {
                 if (!resource) {
                     return res.status(404).json({message: 'resource not found'})
                 }
-                return res.status(204);
+                return res.status(204).json();
             } catch (err) {
                 return res.status(500).json({message: 'something unexpected happened'})
             }

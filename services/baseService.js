@@ -12,7 +12,7 @@ module.exports = (repository) => {
             try {
                 return await repository.findById(id);
             } catch (err) {
-                throw new Error(err)
+                return false
             }
         },
 
@@ -20,7 +20,7 @@ module.exports = (repository) => {
             try {
                 return await repository.updateById(id, data);
             } catch (err) {
-                throw new Error(err)
+                return false
             }
         },
 
@@ -28,7 +28,7 @@ module.exports = (repository) => {
             try {
                 return await repository.deleteById(id);
             } catch (err) {
-                throw new Error(err)
+                return false
             }
         },
         save: async (data) => {

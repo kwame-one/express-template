@@ -18,7 +18,7 @@ module.exports = (model) => {
 
         updateById: async (id, data) => {
             try {
-               return await model.findByIdAndUpdate(id, data)
+               return await model.findOneAndUpdate({_id: id}, data, {new: true})
             } catch (err) {
                 throw new Error(err)
             }
@@ -26,7 +26,7 @@ module.exports = (model) => {
 
         deleteById: async (id) => {
             try {
-                await model.findOneAndDelete(id)
+                return await model.findOneAndDelete({_id: id})
             } catch (err) {
                 throw new Error(err)
             }
